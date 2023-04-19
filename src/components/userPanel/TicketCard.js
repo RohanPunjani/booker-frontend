@@ -23,38 +23,46 @@ export default function TicketCard({ flight, user, bookedFlights = [] }) {
           handleModalView={handleModalView}
         />
       )}
-      <div className="d-flex justify-content-between align-items-center">
-        <div>
+      <div className="row">
+        <div className="col-md-3">
           <p className="lead">From: </p>
           <h1>{flight.fromLocation}</h1>
         </div>
-        <div className="dotted-line"></div>
-        <div className="text-info">
-          <i className="fas fa-plane fa-3x  "></i>
+        <div className="col-md-6 d-flex justify-content-center align-items-center">
+          <div className="dotted-line"></div>
+          <div className="text-info">
+            <i className="fas fa-plane fa-3x"></i>
+          </div>
+          <div className="dotted-line"></div>
         </div>
-        <div className="dotted-line"></div>
-        <div>
+        <div className="col-md-3">
           <p className="lead text-right">To: </p>
-          <h1>{flight.toLocation}</h1>
+          <h1 className="text-right">{flight.toLocation}</h1>
         </div>
       </div>
       <hr className="my-2" />
-      <div className="d-flex justify-content-between align-items-center">
-        <h1 className="display-4 text-info">${flight.price}</h1>
-        <h3 className="lead">{f_date}</h3>
-        {!isBooked && (
-          <button
-            className="btn btn-info btn-lg"
-            onClick={() => handleModalView(true)}
-          >
-            Book Tickets Now
-          </button>
-        )}
-        {isBooked && (
-          <button className="btn btn-info btn-lg" disabled>
-            Already Booked
-          </button>
-        )}
+      <div className="row align-items-center">
+        <div className="col-md-4">
+          <h1 className="display-4 text-info">${flight.price}</h1>
+        </div>
+        <div className="col-md-4 text-center">
+          <h3 className="lead">{f_date}</h3>
+        </div>
+        <div className="col-md-4 text-right">
+          {!isBooked && (
+            <button
+              className="btn btn-info btn-lg"
+              onClick={() => handleModalView(true)}
+            >
+              Book Tickets Now
+            </button>
+          )}
+          {isBooked && (
+            <button className="btn btn-info btn-lg" disabled>
+              Already Booked
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
