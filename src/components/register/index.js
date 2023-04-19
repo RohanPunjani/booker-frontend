@@ -82,7 +82,7 @@ export default function Register() {
                       : "card w-100 bg-info pt-3 px-4 my-3"
                   }
                 >
-                  <p className="lead text-center">{message}</p>
+                  <p className="lead text-center mb-0 my-2">{message}</p>
                 </div>
               )}
               <input
